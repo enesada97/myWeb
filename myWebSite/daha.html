@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Anasayfa</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="anasayfa.html"><img src="img/logo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item"><a href="anasayfa" class="nav-link"></a></li>
+		<li class="nav-item active">
+			<a class="nav-link" href="anasayfa.html">Anasayfa</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="hakkinda.html">Hakkımda</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="blog.html">Blog</a>
+	</ul>
+		</div>
+  </div>
+</nav>
+<div class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1>Amazon Web Services</h1>
+      <div><img src="img/amazon.png"></div>
+			<hr>
+			<div class="col-12">
+				<p>Hakkında internette zilyon tane makale bulabilirsiniz.</p>
+        <p>Ben ilk başlarda araştırırken çok fazla türkçe döküman görmedim. </p>
+        <p>Gerçi türkçe döküman hiç aramadım, yoksa kesin birileri yazmıştır.</p>
+        <p> Amazon Web Services, biz kısaca AWS diyelim.</p>
+        <br>
+        <p><strong>Amazon Simple Storage Service (S3)<br />
+</strong></p>
+<p>Amzon&#8217;un en sevdiğim servisi, eğer statik dosyalarınız varsa ve çok fazla (saatte birden daha sık) değişmiyorsa. Amazon S3 üzerinde ister public ister private olarak barındırabilirsiniz. ( içimden store edebilirsiniz yazmak da geçmedi değil)  kendi apisi gayet kullanışlı, ayrıca favori programımız <strong>s3cmd</strong> ile  de komut satırından direkt olarak bucket&#8217;lara erişim sağlayabiliyorsunuz. Bence tek kusuru panelindeki dosya yöneticisi. Sanki bilerek ilkel bırakılmış gibi. Günümüzdeki popüler web projelerinin çoğu statik dosyalarını S3 üzerinde tutuyor. Mesela HipChat üzerinden birine dosya göndermek istediğinizde anında s3&#8217;e atıp linkini size gönderiyor.</p>
+<p><strong>Amazon Elastic Compute Cloud (EC2)</strong></p>
+<p>Günümüzde <span class="st">Bulut bilişim (<em>Cloud computing</em>)</span> herkesin dilinde. Bir bulut tekerlemesi tutturmuş gidiyoruz. Amazon EC2 servisi ile bu bulut üzerinde kendi ölçeklendirilebilir tarlanızı (cluster) oluşturma olanağı sunuyor. Bunu <strong>Auto Scaling</strong> özelliği ile yapıyor. Tabi bunu yaparken de bir diğer servisi olan <strong>CloudWatch</strong>&#8216;ı kullanıyor. Eğer bir EC2&#8217;yi auto scaling ile yapılandırmayacaksanız ve de ücretsiz kullanım miktarını da aşıyorsanız EC2 size göre değil. Size <strong>DigitalOcean Cloud</strong> servisini öneririm. Bu arada Amazon Centos seçkisi Amazon Linux isminde bir dağıtım hazırlamış en ucuz fiyatı ona veriyor. Haliyle kullanıyorsunuz.</p>
+<p><strong>RDS</strong></p>
+<p>Sistemi auto scaling ile yapılandırınca halilye veritabanı sunucunuzu ayırmanız gerekiyor. İşte burada RDS servisi devreye giriyor. İster küçük bir  Instance ve buna bağlı Read Replica kullanın ya da isterseniz bunların tamamı büyüklüğünde tek bir veritabanı sunucusu oluşturun. Bildiğim kadarı ile henüz RDS auto scale edemiyor. Bu sebeple veritabanı optimizasyonunda tamamen iş size düşüyor. RDS ve CloudSearch gördüğüm kadarı ile Amazon&#8217;un en pahalı servisleri.  Sorgu başına para alması sizi gereksiz SQL sorgularından kaçınmaya itiyor. Performans sorunları olsa da sizi S3Db bile kullanmaya itebilir.</p>
+<p><strong>Route53 &#8211;  DNS Server</strong></p>
+<p>Serviğimiz ucuz servislerden biri Route53. Bildiğiniz DNS server, ekstra bir numarası yok. Her domain için farklı birer domaine sahip dns sunucusu veriyor. Yıllarca paranoyasını yaptığımız dağınık nameserver olayını adamlar servis olarak gayet güzel sunuyor.</p>
+<p><strong>CloudFront</strong></p>
+<p>Amazon&#8217;un CDN servisi. Dosyarı S3 üzerinde tutmasına rağmen MaxCDN ile karşılaştırınca pahalı bir servis. Yine popüler bir çok web sitesi CloudFront kullanmakta.</p>
+<p><strong>Simple Queue Service (SQS)</strong></p>
+<p>İlk öğrenmeye başladığımda hayran olduğum bir servis SQS. Asılında önce atla deve bir şey yapmıyor. Bir listeye işi ekliyor. Talep geldiğinde de sıradan veriyor. Bu servisi de EC2 ile birleştirince ortaya birbiri ile direkt hiç bir etkileşimi olmayan servisler çıkıyor. Ayrıca düzgün bir <strong>CloudWatch</strong> yapılandırması ile EC2&#8217;leri otomatik genişletip daraltabiliyorsunuz. Fakat yine tam entegre bir şekilde kullanmayacaksanız açık kaynak alternatifi RabbitMQ aynı işi daha ucuza yapmanızı da sağlayacaktır.</p>
+<p><strong>Simple Email Service (SES)</strong></p>
+<p>Amazon SES servisinde tamamen ucuz etin yahnisi durumu söz konusu. Herkes kullanıyor ver artık neredeyse her gönderilen email spama düşüyor. Bu sebeple farklı email servislerini kullanmanızı öneriyorum.</p>
+<p><strong>CloudSearch</strong></p>
+<p>Solr alternatifi bir servis, CloudSearch fakat onun pahalı versiyonu. Neredeyse sağlam bir EC2 üzerine Solr kursanız CloudSearch&#8217;den daha ucuza gelecek, ki zaten internette araştırıken bunu yapan bolca insan gördüm.</p>
+<p><strong>ElastiCache</strong></p>
+<p>Amazonun ölçeklendirilebilir in-memory cache servisi. Yapbozun verileri cacheleme(önbellekleme daha iyi gibi )  parçası. Bildiğiniz memory cache.</p>
+<p>Daha bir sürü servisi var ve sürekli yapbozda eksik gördüğü noktalara entegre çözümler sunan servisler çıkarıyor. Onlara da daha sonra deyinebilirim. <strong>SNS</strong>&#8216;de favori servislerimizden fakat çok fazla kullcalamadığım için hakkında yorum yapmayacağım.</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--- Fixed background -->
+<figure>
+	<div class="fixed-wrap">
+		<div id="fixed"></div>
+	</div>
+</figure>
+<!--- Connect -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>Bağlantılarım</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="https://www.linkedin.com/in/enes-tu%C4%9Frul-ada-305a9b1a5/"><i class="fab fa-linkedin"></i></a>
+			<a href="https://www.instagram.com/ada_enes/"><i class="fab fa-instagram"></i></a>
+		</div>
+	</div>
+</div>
+
+
+<!--- Footer -->
+
+	<div class="container-fluid alt">
+	<div class="row text-center">
+			<div class="col-md-12">
+			<h1 class="display-4">İletişim</h1>
+			<hr class="light">
+			<p>0 538 693 30 51</p>
+			<p>E-mail:eada997@gmail.com</p>
+			<p>Eskişehir/Merkez</p>
+			</div>
+			<div class="col-12">
+				<hr class="light">
+				<h5>&copy;enesada.tk</h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
